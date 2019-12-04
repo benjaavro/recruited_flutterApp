@@ -13,8 +13,31 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
 
-  TabController _tabController;
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+    ),
+    Text(
+      'Index 1: List',
+    ),
+    Text(
+      'Index 2: Add',
+    ),
+    Text(
+      'Index 3: Settings',
+    ),
+    Text(
+      'Index 4: Profile',
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,55 +63,50 @@ class _HomeState extends State<Home> {
             )
         ],
       ),
-      body: new TabBarView(
-        controller: _tabController,
-          children: [
-            new HomeBody(),
-            Icon(Icons.directions_transit),
-
-          ],
+      body: new Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: DefaultTabController(
-          length: 5,
-          child: new Container(
-            color: Colors.white,
-            height: 50.0,
-            alignment: Alignment.center,
-            child: new BottomAppBar(
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  new IconButton(
-                    color: Theme.of(context).primaryColor,
-                    icon: Icon(Icons.home),
-                    onPressed: () {
-
-                    },
-                  ),
-                  new IconButton(
-                      color: Theme.of(context).primaryColor,
-                      icon: Icon(Icons.list),
-                      onPressed: () {}
-                  ),
-                  new IconButton(
-                      color: Theme.of(context).primaryColor,
-                      icon: Icon(Icons.add_box),
-                      onPressed: () {}
-                  ),
-                  new IconButton(
-                      color: Theme.of(context).primaryColor,
-                      icon: Icon(Icons.settings),
-                      onPressed: () {}
-                  ),
-                  new IconButton(
-                      color: Theme.of(context).primaryColor,
-                      icon: Icon(Icons.person),
-                      onPressed: () {}
-                  ),
-                ],
-              ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+                Icons.home,
+                color: Colors.black54,
             ),
+            title: Text(''),
           ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.list,
+              color: Colors.black54,
+            ),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.add_box,
+              color: Colors.black54,
+            ),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.settings,
+              color: Colors.black54,
+            ),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+              color: Colors.black54,
+            ),
+            title: Text(''),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Theme.of(context).accentColor,
+        onTap: _onItemTapped,
       ),
     );
   }
