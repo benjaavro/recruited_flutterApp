@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryTextTheme: TextTheme(
             title: TextStyle(
                 color: Colors.grey[800],
-                fontFamily: "Roboto")
+                fontFamily: "Roboto-Regular")
         ),
         textTheme: TextTheme(
             title: TextStyle(

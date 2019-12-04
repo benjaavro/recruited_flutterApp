@@ -65,6 +65,8 @@ flutter:
     - family: Bebas Neue
       fonts:
         - asset: assets/fonts/BebasNeue-Regular.ttf
+  # uses-material-design: true
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

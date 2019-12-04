@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruited_app/home-body.dart';
 import 'package:recruited_app/login.dart';
-
+import 'package:recruited_app/profile.dart';
 
 Future LogOut(context) async {
   Navigator.push(context, MaterialPageRoute(builder: (context) => LogIn()));
@@ -26,9 +26,7 @@ class _HomeState extends State<Home> {
     Text(
       'Index 3: Settings',
     ),
-    Text(
-      'Index 4: Profile',
-    ),
+    new Profile(),
   ];
 
   void _onItemTapped(int index) {
