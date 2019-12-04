@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:recruited_app/signup.dart';
+import 'package:recruited_app/home.dart';
 //import 'package:flutter/services.dart';
+
+Future navigateToSignUp(context) async {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+}
+
+Future navigateToHome(context) async {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+}
 
 class LogIn extends StatelessWidget {
   @override
@@ -22,7 +32,6 @@ class LogIn extends StatelessWidget {
                   height: 40.0,
                   width: 200.0,
                   child: TextFormField(
-                    autofocus: true,
                     decoration: InputDecoration(
                       fillColor: Colors.white,
                       border: new OutlineInputBorder(
@@ -43,13 +52,15 @@ class LogIn extends StatelessWidget {
                   ),
                 ),
               ),
+              new Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4.0),
+              ),
               new Center(
                 child: new SizedBox(
                   height: 40.0,
                   width: 200.0,
                   child: TextFormField(
                     obscureText: true,
-                    autofocus: true,
                     decoration: InputDecoration(
                       fillColor: Colors.white,
                       border: new OutlineInputBorder(
@@ -82,8 +93,10 @@ class LogIn extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                        onPressed: null,
-                        color: Colors.white,
+                        onPressed: () {
+                          navigateToHome(context);
+                        },
+                        color: Theme.of(context).accentColor,
                         textColor: Colors.white,
                         splashColor: Colors.green,
                       ),
@@ -97,10 +110,11 @@ class LogIn extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                        onPressed: null,
-                        color: Colors.white,
+                        onPressed: () {
+                          navigateToSignUp(context);
+                        },
+                        color: Theme.of(context).primaryColor,
                         textColor: Colors.white,
-                        splashColor: Colors.green,
                       ),
                     ],
                   ),

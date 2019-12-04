@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:recruited_app/home-body.dart';
+import 'package:recruited_app/login.dart';
+
+
+Future navigateToLogIn(context) async {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => LogIn()));
+}
 
 class Home extends StatelessWidget {
 
@@ -15,9 +21,15 @@ class Home extends StatelessWidget {
         actions: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
-              child: Icon(
-                Icons.input,
-                color: Colors.white,),
+              child: IconButton(
+                icon: Icon(
+                  Icons.input,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  navigateToLogIn(context);
+                },
+              ),
             )
         ],
       ),
