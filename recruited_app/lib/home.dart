@@ -3,11 +3,41 @@ import 'package:recruited_app/home-body.dart';
 import 'package:recruited_app/login.dart';
 
 
-Future navigateToLogIn(context) async {
+Future LogOut(context) async {
   Navigator.push(context, MaterialPageRoute(builder: (context) => LogIn()));
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => new _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+    ),
+    Text(
+      'Index 1: List',
+    ),
+    Text(
+      'Index 2: Add',
+    ),
+    Text(
+      'Index 3: Settings',
+    ),
+    Text(
+      'Index 4: Profile',
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +57,63 @@ class Home extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  navigateToLogIn(context);
+                  LogOut(context);
                 },
               ),
             )
         ],
       ),
-      body: new HomeBody(),
-      bottomNavigationBar: new Container(
+      body: new Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+                Icons.home,
+                color: Colors.black54,
+            ),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.list,
+              color: Colors.black54,
+            ),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.add_box,
+              color: Colors.black54,
+            ),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.settings,
+              color: Colors.black54,
+            ),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+              color: Colors.black54,
+            ),
+            title: Text(''),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Theme.of(context).accentColor,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+/*
+* new Container(
         color: Colors.white,
         height: 50.0,
         alignment: Alignment.center,
@@ -45,7 +124,9 @@ class Home extends StatelessWidget {
               new IconButton(
                   color: Theme.of(context).primaryColor,
                   icon: Icon(Icons.home),
-                  onPressed: () {}
+                  onPressed: () {
+
+                  },
                   ),
               new IconButton(
                   color: Theme.of(context).primaryColor,
@@ -71,6 +152,4 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
+* */
