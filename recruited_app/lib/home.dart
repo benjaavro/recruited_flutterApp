@@ -15,10 +15,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    new HomeBody(),
     Text(
       'Index 1: List',
     ),
@@ -111,45 +109,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-/*
-* new Container(
-        color: Colors.white,
-        height: 50.0,
-        alignment: Alignment.center,
-        child: new BottomAppBar(
-          child: new Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              new IconButton(
-                  color: Theme.of(context).primaryColor,
-                  icon: Icon(Icons.home),
-                  onPressed: () {
-
-                  },
-                  ),
-              new IconButton(
-                  color: Theme.of(context).primaryColor,
-                  icon: Icon(Icons.list),
-                  onPressed: () {}
-              ),
-              new IconButton(
-                  color: Theme.of(context).primaryColor,
-                  icon: Icon(Icons.add_box),
-                  onPressed: () {}
-              ),
-              new IconButton(
-                  color: Theme.of(context).primaryColor,
-                  icon: Icon(Icons.settings),
-                  onPressed: () {}
-              ),
-              new IconButton(
-                  color: Theme.of(context).primaryColor,
-                  icon: Icon(Icons.person),
-                  onPressed: () {}
-              ),
-            ],
-          ),
-        ),
-      ),
-* */
