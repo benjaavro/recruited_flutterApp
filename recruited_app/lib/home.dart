@@ -3,11 +3,18 @@ import 'package:recruited_app/home-body.dart';
 import 'package:recruited_app/login.dart';
 
 
-Future navigateToLogIn(context) async {
+Future LogOut(context) async {
   Navigator.push(context, MaterialPageRoute(builder: (context) => LogIn()));
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => new _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  TabController _tabController;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +34,68 @@ class Home extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  navigateToLogIn(context);
+                  LogOut(context);
                 },
               ),
             )
         ],
       ),
-      body: new HomeBody(),
-      bottomNavigationBar: new Container(
+      body: new TabBarView(
+        controller: _tabController,
+          children: [
+            new HomeBody(),
+            Icon(Icons.directions_transit),
+
+          ],
+      ),
+      bottomNavigationBar: DefaultTabController(
+          length: 5,
+          child: new Container(
+            color: Colors.white,
+            height: 50.0,
+            alignment: Alignment.center,
+            child: new BottomAppBar(
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  new IconButton(
+                    color: Theme.of(context).primaryColor,
+                    icon: Icon(Icons.home),
+                    onPressed: () {
+
+                    },
+                  ),
+                  new IconButton(
+                      color: Theme.of(context).primaryColor,
+                      icon: Icon(Icons.list),
+                      onPressed: () {}
+                  ),
+                  new IconButton(
+                      color: Theme.of(context).primaryColor,
+                      icon: Icon(Icons.add_box),
+                      onPressed: () {}
+                  ),
+                  new IconButton(
+                      color: Theme.of(context).primaryColor,
+                      icon: Icon(Icons.settings),
+                      onPressed: () {}
+                  ),
+                  new IconButton(
+                      color: Theme.of(context).primaryColor,
+                      icon: Icon(Icons.person),
+                      onPressed: () {}
+                  ),
+                ],
+              ),
+            ),
+          ),
+      ),
+    );
+  }
+}
+
+/*
+* new Container(
         color: Colors.white,
         height: 50.0,
         alignment: Alignment.center,
@@ -45,7 +106,9 @@ class Home extends StatelessWidget {
               new IconButton(
                   color: Theme.of(context).primaryColor,
                   icon: Icon(Icons.home),
-                  onPressed: () {}
+                  onPressed: () {
+
+                  },
                   ),
               new IconButton(
                   color: Theme.of(context).primaryColor,
@@ -71,6 +134,4 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
+* */

@@ -98,7 +98,7 @@ class LogIn extends StatelessWidget {
                         },
                         color: Theme.of(context).accentColor,
                         textColor: Colors.white,
-                        splashColor: Colors.green,
+                        //splashColor: Colors.green,
                       ),
                       new Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
