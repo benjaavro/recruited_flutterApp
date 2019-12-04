@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruited_app/login.dart';
 
 import 'home.dart';
 
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
         ),
         accentColor: Colors.blueAccent[700],
       ),
-      home: new Home(),
+      home: new LogIn(),
     );
   }
 }
