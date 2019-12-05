@@ -280,7 +280,7 @@ class _ProfileState extends State<Profile> {
               ],
             ),
             new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0),),
-            Text(
+            /*Text(
               "POSTS",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -292,7 +292,7 @@ class _ProfileState extends State<Profile> {
               children: <Widget>[
                 new MyPosts(),
               ],
-            ),
+            ),*/
           ],
         ),
       ],
