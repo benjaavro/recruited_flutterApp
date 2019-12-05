@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:recruited_app/home-body.dart';
 import 'package:recruited_app/login.dart';
+import 'package:recruited_app/new-post.dart';
 import 'package:recruited_app/profile.dart';
+import 'package:recruited_app/posts-list.dart';
 
 Future LogOut(context) async {
   Navigator.push(context, MaterialPageRoute(builder: (context) => LogIn()));
@@ -20,9 +22,7 @@ class _HomeState extends State<Home> {
     Text(
       'Index 1: List',
     ),
-    Text(
-      'Index 2: Add',
-    ),
+    new NewPost(),
     Text(
       'Index 3: Settings',
     ),

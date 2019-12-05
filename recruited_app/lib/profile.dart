@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recruited_app/my-posts.dart';
 
 import 'package:recruited_app/posts-list.dart';
 
@@ -287,11 +286,6 @@ class _ProfileState extends State<Profile> {
                 fontSize: 20.0,
                 color: Theme.of(context).primaryColor,
               ),
-            ),
-            ListView(
-              children: <Widget>[
-                new MyPosts(),
-              ],
             ),
           ],
         ),

@@ -55,6 +55,15 @@ class PostsList extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16.0, 16.0, 0.0, 0.0),
+                child: Text(
+                  "Post Description",
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
