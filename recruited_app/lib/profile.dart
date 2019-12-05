@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:recruited_app/my-posts.dart';
+
+import 'package:recruited_app/posts-list.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -31,6 +34,7 @@ class _ProfileState extends State<Profile> {
               children: <Widget>[
                 new Row(
                   children: <Widget>[
+                    new Padding(padding: const EdgeInsets.symmetric(horizontal: 15.0)),
                     new Center(
                       child: Text(
                         "Benjamin Avila Rosas",
@@ -48,7 +52,7 @@ class _ProfileState extends State<Profile> {
                 new Row(
                   children: <Widget>[
                     new Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     ),
                     new Column(
                       children: <Widget>[
@@ -95,6 +99,198 @@ class _ProfileState extends State<Profile> {
                     ),
                   ],
                 ),
+              ],
+            ),
+          ],
+        ),
+        new Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+            ),
+            Container(
+              margin: const EdgeInsets.all(15.0),
+              decoration: BoxDecoration(
+                border: Border.all(width: 1.0, color: Theme.of(context).primaryColor),
+              ),
+            ),
+            Column(
+              children: <Widget>[
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    ),
+                    Text(
+                      "Name:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    ),
+                    Text(
+                      "Benjamín Avila Rosas",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+
+                    ),
+                  ],
+                ),
+                new Padding(padding: const EdgeInsets.symmetric(vertical: 3.0),),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    ),
+                    Text(
+                      "Email:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    ),
+                    Text(
+                      "benjaavro@gmail.com",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+
+                    ),
+                  ],
+                ),
+                new Padding(padding: const EdgeInsets.symmetric(vertical: 3.0),),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    ),
+                    Text(
+                      "Phone:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    ),
+                    Text(
+                      "(56) 1270 5695",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+
+                    ),
+                  ],
+                ),
+                new Padding(padding: const EdgeInsets.symmetric(vertical: 3.0),),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    ),
+                    Text(
+                      "Sport:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    ),
+                    Text(
+                      "Football",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+
+                    ),
+                  ],
+                ),
+                new Padding(padding: const EdgeInsets.symmetric(vertical: 3.0),),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    ),
+                    Text(
+                      "Team:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    ),
+                    Text(
+                      "ITESM Toluca",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+
+                    ),
+                  ],
+                ),
+                new Padding(padding: const EdgeInsets.symmetric(vertical: 3.0),),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    ),
+                    Text(
+                      "Age:",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    ),
+                    Text(
+                      "23",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0),),
+            Text(
+              "POSTS",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            ListView(
+              children: <Widget>[
+                new MyPosts(),
               ],
             ),
           ],
