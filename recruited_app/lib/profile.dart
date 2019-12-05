@@ -279,14 +279,13 @@ class _ProfileState extends State<Profile> {
               ],
             ),
             new Padding(padding: const EdgeInsets.symmetric(vertical: 5.0),),
-            Text(
+            /*Text(
               "POSTS",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
                 color: Theme.of(context).primaryColor,
-              ),
-            ),
+              ),*/
           ],
         ),
       ],
