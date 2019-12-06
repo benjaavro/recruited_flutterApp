@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-
+import 'globals.dart' as globals;
 import 'athlete.dart';
 import 'database.dart';
 
-import 'globals.dart' as globals;
-
+import 'athlete.dart';
+import 'database.dart';
 var name = "hola";
 var Email = "";
 var Sport = "";
 var Team = "";
 var age = 0;
 bool data = true;
-
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => new _ProfileState();
@@ -216,7 +215,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ],
                 ),
-                /*new Padding(padding: const EdgeInsets.symmetric(vertical: 3.0),),
+                new Padding(padding: const EdgeInsets.symmetric(vertical: 3.0),),
                 new Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
@@ -242,7 +241,7 @@ class _ProfileState extends State<Profile> {
 
                     ),
                   ],
-                ),*/
+                ),
                 new Padding(padding: const EdgeInsets.symmetric(vertical: 3.0),),
                 new Row(
                   mainAxisAlignment: MainAxisAlignment.start,

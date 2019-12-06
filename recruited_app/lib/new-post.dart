@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'athlete.dart';
 import 'database.dart';
 import 'home.dart';
+import 'globals.dart' as globals;
 
 final textController = TextEditingController();
 
@@ -15,7 +16,7 @@ Future insertNewPostIntoDB() async {
 
   String content = textController.text;
 
-  final dummy = Post(null, 1, content);
+  final dummy = Post(null, globals.id, content);
 
   final post = await dao.insertPost(dummy);
 
