@@ -3,14 +3,13 @@ import 'package:recruited_app/home-body.dart';
 import 'package:recruited_app/login.dart';
 import 'package:recruited_app/new-post.dart';
 import 'package:recruited_app/profile.dart';
-
+import 'globals.dart' as globals;
 Future logOut(context) async {
+  globals.id=0;
   Navigator.push(context, MaterialPageRoute(builder: (context) => LogIn()));
 }
 
 class Home extends StatefulWidget {
-  final int athId;
-  Home({Key key, @required this.athId}) : super(key: key);
 
   @override
   _HomeState createState() => new _HomeState();

@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 import 'package:encrypt/encrypt.dart' as cy;
 import 'package:encrypt/encrypt.dart' ;
+import 'globals.dart' as globals;
 //import 'package:flutter/services.dart';
 
 final _usernameController = TextEditingController();
@@ -28,10 +29,11 @@ Future navigateToHome(context) async {
   final decrypted = encrypter.decrypt16(data['password'], iv: iv);
 
   if(password == decrypted) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Home(id: id)));
+    globals.id = id;
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Home());
   }*/
-
-  Navigator.push(context, MaterialPageRoute(builder: (context) => Home(athId: 1)));
+  globals.id = 1;
+  Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
 }
 
 class LogIn extends StatelessWidget {
