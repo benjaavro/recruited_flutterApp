@@ -1,25 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'database.dart';
-import 'athleteDAO.dart';
-import 'athlete.dart';
-
-
-
-Future getAllPosts() async {
-  final database = await $FloorAppDatabase
-      .databaseBuilder('app_database.db')
-      .build();
-
-  final dao = database.athleteDao;
-
-  List<Post> postsList = await dao.findAllPost();
-  for(var i=0; i<postsList.length; i++){
-    print(postsList[i].content);
-  }
-  //print(postsList[0].content);
-}
-
 class PostList extends StatefulWidget {
   @override
   _PostList createState() => _PostList();
@@ -28,7 +8,6 @@ class PostList extends StatefulWidget {
 class _PostList extends State<PostList> {
   @override
   Widget build(BuildContext context) {
-    getAllPosts();
     // TODO: implement build
     return new ListView.builder(
       itemCount: 9,
