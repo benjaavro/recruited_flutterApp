@@ -282,7 +282,7 @@ class _SignUp extends State<SignUp>{
                 ),
               ),
             ),
-            new Padding(
+            /*new Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),
             ),
             new Center(
@@ -329,7 +329,7 @@ class _SignUp extends State<SignUp>{
                   ),
                 ],
               ),
-            ),
+            ),*/
             new Padding(
               padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
               child: new Row(
