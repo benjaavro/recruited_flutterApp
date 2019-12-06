@@ -14,6 +14,8 @@ class PostList extends StatefulWidget {
   _PostList createState() => _PostList();
 }
 
+final TextEditingController eCtrl = new TextEditingController();
+
 Future getDbPost() async {
   final database = await $FloorAppDatabase
       .databaseBuilder('app_database.db')
@@ -21,15 +23,22 @@ Future getDbPost() async {
 
   final dao = database.athleteDao;
 
+  //List<String> items = [];
+
   List<Post> postList = await dao.findAllPost();
   for (var i = 0; i < postList.length; i++) {
     print(postList[i].content);
+    //items[i] = postList[i].content;
   }
   print(postList.length);
   largo = postList.length;
   print(postList[0].content);
   
   data = false;
+
+  //print(items);
+
+  //return items;
 }
 
 class _PostList extends State<PostList> {
@@ -100,7 +109,7 @@ class _PostList extends State<PostList> {
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 0.0),
             child: Text(
-              '$contenido',
+              '$content',
               style: TextStyle(
                 fontSize: 18.0,
                 color: Colors.black,
