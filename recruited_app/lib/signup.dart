@@ -53,9 +53,9 @@ Future insertIntoDB() async {
 
   final athlete = await dao.insertAthlete(dummy);
 
-  final athleteList = await dao.findAthleteById(1);
+  final athleteData = await dao.findAthleteById(1);
 
-  print(athleteList);
+  print(athleteData);
 }
 
 class SignUp extends StatefulWidget {
