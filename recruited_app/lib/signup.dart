@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:convert/convert.dart' as convert;
+//import 'package:convert/convert.dart' as convert;
 
 import 'package:encrypt/encrypt.dart' as cy;
 import 'package:encrypt/encrypt.dart';
 
 import 'package:recruited_app/login.dart';
 import 'athlete.dart';
-import 'athleteDAO.dart';
 import 'database.dart';
 
 final nameController = TextEditingController();
@@ -68,8 +67,8 @@ class SignUp extends StatefulWidget {
 class _SignUp extends State<SignUp>{
   @override
   Widget build(BuildContext context) {
-    bool male = false;
-    bool female = false;
+    //bool male = false;
+    //bool female = false;
 
     // TODO: implement build
     return new Scaffold(

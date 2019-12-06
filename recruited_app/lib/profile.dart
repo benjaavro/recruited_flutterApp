@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:recruited_app/posts-list.dart';
-
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => new _ProfileState();

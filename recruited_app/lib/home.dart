@@ -3,9 +3,8 @@ import 'package:recruited_app/home-body.dart';
 import 'package:recruited_app/login.dart';
 import 'package:recruited_app/new-post.dart';
 import 'package:recruited_app/profile.dart';
-import 'package:recruited_app/posts-list.dart';
 
-Future LogOut(context) async {
+Future logOut(context) async {
   Navigator.push(context, MaterialPageRoute(builder: (context) => LogIn()));
 }
 
@@ -54,7 +53,7 @@ class _HomeState extends State<Home> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  LogOut(context);
+                  logOut(context);
                 },
               ),
             )

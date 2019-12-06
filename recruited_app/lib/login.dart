@@ -26,6 +26,7 @@ Future navigateToHome(context) async {
   final iv = IV.fromLength(16);
   final encrypter = Encrypter(AES(key));
   final decrypted = encrypter.decrypt16(data['password'], iv: iv);
+
   if(password == decrypted) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Home(id: id)));
   }
