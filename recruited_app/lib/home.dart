@@ -10,13 +10,14 @@ Future LogOut(context) async {
 }
 
 class Home extends StatefulWidget {
+  final int id;
+  Home({Key key, @required this.id}) : super(key: key);
   @override
   _HomeState createState() => new _HomeState();
 }
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
-
   static List<Widget> _widgetOptions = <Widget>[
     new HomeBody(),
     Text(
