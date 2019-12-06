@@ -1,16 +1,53 @@
 import 'package:flutter/material.dart';
 
+import 'database.dart';
+import 'globals.dart' as globals;
+import 'athlete.dart';
+import 'athleteDAO.dart';
+
+var contenido = "hola";
+var largo = 0;
+bool data = true;
+
 class PostList extends StatefulWidget {
   @override
   _PostList createState() => _PostList();
 }
 
+Future getDbPost() async {
+  final database = await $FloorAppDatabase
+      .databaseBuilder('app_database.db')
+      .build();
+
+  final dao = database.athleteDao;
+
+  List<Post> postList = await dao.findAllPost();
+  for (var i = 0; i < postList.length; i++) {
+    print(postList[i].content);
+  }
+  print(postList.length);
+  largo = postList.length;
+  print(postList[0].content);
+  
+  data = false;
+}
+
 class _PostList extends State<PostList> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    String content = contenido;
+
+    changeText() {
+      setState(() {
+        String content = contenido;
+      });
+    }
+    if(data == true){
+      getDbPost().then((erg){changeText();});
+    }
+
     return new ListView.builder(
-      itemCount: 9,
+      itemCount: largo,
       itemBuilder: (context, index) => index == 0
           ? new SizedBox(
 
@@ -63,7 +100,7 @@ class _PostList extends State<PostList> {
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 0.0),
             child: Text(
-              "Post Description",
+              '$contenido',
               style: TextStyle(
                 fontSize: 18.0,
                 color: Colors.black,

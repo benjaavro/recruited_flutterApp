@@ -83,7 +83,7 @@ class _ProfileState extends State<Profile> {
                     new Padding(padding: const EdgeInsets.symmetric(horizontal: 15.0)),
                     new Center(
                       child: Text(
-                        "",
+                        '$nombre',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20.0,

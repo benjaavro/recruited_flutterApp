@@ -39,7 +39,7 @@ Future insertIntoDB() async {
 
   final dummy = Athlete(null, name, email, sport, team, age);
 
-  var url = 'http://192.168.0.116:3000/mobile/insert';
+  /*var url = 'http://192.168.0.116:3000/mobile/insert';
 
   final key = cy.Key.fromLength(32);
   final iv = cy.IV.fromLength(16);
@@ -49,7 +49,7 @@ Future insertIntoDB() async {
 
   var response = await http.post(url, body: {'Mail': email, 'Password': encrypted.base16});
 
-  print(response);
+  print(response);*/
 
   final athlete = await dao.insertAthlete(dummy);
 
