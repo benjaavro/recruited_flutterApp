@@ -1,5 +1,27 @@
 import 'package:flutter/material.dart';
 
+import 'athlete.dart';
+import 'database.dart';
+import 'home.dart';
+
+final textController = TextEditingController();
+
+Future insertNewPostIntoDB() async {
+  final database = await $FloorAppDatabase
+      .databaseBuilder('app_database.db')
+      .build();
+
+  final dao = database.athleteDao;
+
+  String content = textController.text;
+
+  final dummy = Post(null, 1, content);
+
+  final post = await dao.insertPost(dummy);
+
+  //print(post);
+}
+
 class NewPost extends StatefulWidget {
   @override
   _NewPost createState() => _NewPost();
@@ -30,18 +52,21 @@ class _NewPost extends State<NewPost> {
         new SizedBox(
             width: 300.0,
             child: new TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Write something here',
+              controller: textController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Write something here',
+              ),
             ),
-          ),
         ),
         new Padding(padding: const EdgeInsets.symmetric(vertical: 15.0)),
         new Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             new FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  insertNewPostIntoDB();
+                },
                 child: Text(
                   "POST",
                   style: TextStyle(

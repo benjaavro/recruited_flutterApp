@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-class PostsList extends StatelessWidget {
+class PostList extends StatefulWidget {
+  @override
+  _PostList createState() => _PostList();
+}
+
+class _PostList extends State<PostList> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

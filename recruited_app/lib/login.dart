@@ -15,7 +15,7 @@ Future navigateToSignUp(context) async {
 }
 
 Future navigateToHome(context) async {
-  String username = _usernameController.text;
+  /*String username = _usernameController.text;
   String password = _passwordController.text;
   var url = 'http://192.168.0.116:3000/mobile/get';
   var response = await http.post(url, body: {'Mail': username});
@@ -29,7 +29,9 @@ Future navigateToHome(context) async {
 
   if(password == decrypted) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Home(id: id)));
-  }
+  }*/
+
+  Navigator.push(context, MaterialPageRoute(builder: (context) => Home(athId: 1)));
 }
 
 class LogIn extends StatelessWidget {

@@ -9,8 +9,9 @@ Future logOut(context) async {
 }
 
 class Home extends StatefulWidget {
-  final int id;
-  Home({Key key, @required this.id}) : super(key: key);
+  final int athId;
+  Home({Key key, @required this.athId}) : super(key: key);
+
   @override
   _HomeState createState() => new _HomeState();
 }
@@ -28,6 +29,8 @@ class _HomeState extends State<Home> {
     ),
     new Profile(),
   ];
+
+  static get id => null;
 
   void _onItemTapped(int index) {
     setState(() {

@@ -52,7 +52,7 @@ Future insertIntoDB() async {
   print(response);
 
   final athlete = await dao.insertAthlete(dummy);
-  
+
 }
 
 class SignUp extends StatefulWidget {
