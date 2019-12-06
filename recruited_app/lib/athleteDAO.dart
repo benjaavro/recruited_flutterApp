@@ -4,7 +4,7 @@ import 'athlete.dart';
 @dao
 abstract class AthleteDao {
   @Query('SELECT * FROM post')
-  Stream<List<Post>> findAllPost();
+  Future<List<Post>> findAllPost();
 
   @Query('SELECT * FROM athlete')
   Future<List<Athlete>> findAllAthlete();
