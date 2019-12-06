@@ -40,7 +40,7 @@ Future insertIntoDB() async {
 
   final dummy = Athlete(null, name, email, sport, team, age);
 
-  var url = 'http://10.25.241.57:3000/mobile/insert';
+  var url = 'http://192.168.0.116:3000/mobile/insert';
 
   final key = cy.Key.fromLength(32);
   final iv = cy.IV.fromLength(16);
@@ -56,7 +56,8 @@ Future insertIntoDB() async {
 
   final athleteList = await dao.findAthleteById(1);
 
-  print(athleteList);
+  print(athleteList.name);
+
 }
 
 class SignUp extends StatefulWidget {

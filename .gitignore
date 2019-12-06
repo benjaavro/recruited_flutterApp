@@ -1,3 +1,4 @@
 
 *.xml
 .idea/Recruited_flutterApp.iml
+.DS_Store
