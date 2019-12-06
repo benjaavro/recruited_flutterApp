@@ -1,15 +1,62 @@
 import 'package:flutter/material.dart';
+import 'globals.dart' as globals;
+import 'athlete.dart';
+import 'database.dart';
 
-import 'package:recruited_app/posts-list.dart';
-
+import 'athlete.dart';
+import 'database.dart';
+var name = "hola";
+var Email = "";
+var Sport = "";
+var Team = "";
+var age = 0;
+bool data = true;
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => new _ProfileState();
 }
 
+Future getDB() async {
+  final database = await $FloorAppDatabase
+      .databaseBuilder('app_database.db')
+      .build();
+
+  final dao = database.athleteDao;
+  final athlete = await dao.findAthleteById(globals.id);
+  name = athlete.name;
+  Email = athlete.mail;
+  Sport = athlete.sport;
+  Team = athlete.team;
+  age = athlete.age;
+  data = false;
+
+
+
+}
+
 class _ProfileState extends State<Profile> {
+
   @override
   Widget build(BuildContext context) {
+    String nombre = name;
+    String correo = Email;
+    String deporte = Sport;
+    String equipo = Team;
+    int edad = age;
+
+    changeText() {
+      setState(() {
+        String nombre = name;
+        String correo = Email;
+        String deporte = Sport;
+        String equipo = Team;
+        int edad = age;
+      });
+    }
+    if(data == true){
+      getDB().then((erg){changeText();});}
+
+
     // TODO: implement build
     return new Column(
       children: <Widget>[
@@ -36,7 +83,7 @@ class _ProfileState extends State<Profile> {
                     new Padding(padding: const EdgeInsets.symmetric(horizontal: 15.0)),
                     new Center(
                       child: Text(
-                        "Benjamin Avila Rosas",
+                        '$nombre',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20.0,
@@ -133,7 +180,7 @@ class _ProfileState extends State<Profile> {
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
                     ),
                     Text(
-                      "Benjamín Avila Rosas",
+                      '$nombre',
                       style: TextStyle(
                         fontSize: 18.0,
                       ),
@@ -160,7 +207,7 @@ class _ProfileState extends State<Profile> {
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
                     ),
                     Text(
-                      "benjaavro@gmail.com",
+                      '$correo',
                       style: TextStyle(
                         fontSize: 18.0,
                       ),
@@ -214,7 +261,7 @@ class _ProfileState extends State<Profile> {
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
                     ),
                     Text(
-                      "Football",
+                      '$deporte',
                       style: TextStyle(
                         fontSize: 18.0,
                       ),
@@ -241,7 +288,7 @@ class _ProfileState extends State<Profile> {
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
                     ),
                     Text(
-                      "ITESM Toluca",
+                      '$equipo',
                       style: TextStyle(
                         fontSize: 18.0,
                       ),
@@ -268,7 +315,7 @@ class _ProfileState extends State<Profile> {
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
                     ),
                     Text(
-                      "23",
+                      '$edad',
                       style: TextStyle(
                         fontSize: 18.0,
                       ),

@@ -3,20 +3,20 @@ import 'package:recruited_app/home-body.dart';
 import 'package:recruited_app/login.dart';
 import 'package:recruited_app/new-post.dart';
 import 'package:recruited_app/profile.dart';
-import 'package:recruited_app/posts-list.dart';
-
-Future LogOut(context) async {
+import 'globals.dart' as globals;
+Future logOut(context) async {
+  globals.id=0;
   Navigator.push(context, MaterialPageRoute(builder: (context) => LogIn()));
 }
 
 class Home extends StatefulWidget {
+
   @override
   _HomeState createState() => new _HomeState();
 }
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
-
   static List<Widget> _widgetOptions = <Widget>[
     new HomeBody(),
     Text(
@@ -28,6 +28,8 @@ class _HomeState extends State<Home> {
     ),
     new Profile(),
   ];
+
+  static get id => null;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -53,7 +55,7 @@ class _HomeState extends State<Home> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  LogOut(context);
+                  logOut(context);
                 },
               ),
             )

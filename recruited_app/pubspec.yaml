@@ -17,6 +17,10 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  sqflite: ^1.1.7+3
+  floor: ^0.9.0
+  http: ^0.12.0+2
+  encrypt: ^3.3.1
   flutter:
     sdk: flutter
 
@@ -26,6 +30,8 @@ dependencies:
   font_awesome_flutter:
 
 dev_dependencies:
+  floor_generator: ^0.9.0
+  build_runner: ^1.7.1
   flutter_test:
     sdk: flutter
 

@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:recruited_app/home.dart';
 import 'package:recruited_app/login.dart';
-import 'package:recruited_app/signup.dart';
+import 'athleteDAO.dart';
+import 'database.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+
+  final database = await $FloorAppDatabase
+      .databaseBuilder('app_database.db')
+      .build();
+  final dao = database.athleteDao;
+
+  runApp(MyApp(dao));
+}
 
 class MyApp extends StatelessWidget {
+  final AthleteDao dao;
+
+  const MyApp(this.dao);
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,) {
     return new MaterialApp(
       title: 'Recruited',
       debugShowCheckedModeBanner: false,
