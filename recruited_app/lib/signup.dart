@@ -230,7 +230,7 @@ class _SignUp extends State<SignUp>{
             new Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),
             ),
-            new Center(
+            /*new Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -274,7 +274,7 @@ class _SignUp extends State<SignUp>{
                   ),
                 ],
               ),
-            ),
+            ),*/
             new Padding(
               padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
               child: new Row(
