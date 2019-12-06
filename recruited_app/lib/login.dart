@@ -1,14 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:recruited_app/signup.dart';
 import 'package:recruited_app/home.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
+import 'package:encrypt/encrypt.dart' as cy;
+import 'package:encrypt/encrypt.dart' ;
 //import 'package:flutter/services.dart';
+
+final _usernameController = TextEditingController();
+final _passwordController = TextEditingController();
 
 Future navigateToSignUp(context) async {
   Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
 }
 
 Future navigateToHome(context) async {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+  String username = _usernameController.text;
+  String password = _passwordController.text;
+  var url = 'http://10.25.241.57:3000/mobile/get';
+  var response = await http.post(url, body: {'Mail': username});
+  var jsonResponse = convert.jsonDecode(response.body);
+  var data = jsonResponse[0];
+  var id = data['id'];
+  final key = cy.Key.fromLength(32);
+  final iv = IV.fromLength(16);
+  final encrypter = Encrypter(AES(key));
+  final decrypted = encrypter.decrypt16(data['password'], iv: iv);
+  if(password == decrypted) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Home(id: id)));
+  }
 }
 
 class LogIn extends StatelessWidget {
@@ -32,6 +52,7 @@ class LogIn extends StatelessWidget {
                   height: 40.0,
                   width: 200.0,
                   child: TextFormField(
+                    controller: _usernameController,
                     decoration: InputDecoration(
                       fillColor: Colors.white,
                       border: new OutlineInputBorder(
@@ -60,6 +81,7 @@ class LogIn extends StatelessWidget {
                   height: 40.0,
                   width: 200.0,
                   child: TextFormField(
+                    controller: _passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
                       fillColor: Colors.white,
