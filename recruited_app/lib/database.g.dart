@@ -97,7 +97,7 @@ class _$AppDatabase extends AppDatabase {
 
 class _$AthleteDao extends AthleteDao {
   _$AthleteDao(this.database, this.changeListener)
-      : _queryAdapter = QueryAdapter(database),
+      : _queryAdapter = QueryAdapter(database, changeListener),
         _athleteInsertionAdapter = InsertionAdapter(
             database,
             'athlete',
@@ -116,7 +116,8 @@ class _$AthleteDao extends AthleteDao {
                   'id': item.id,
                   'athleteId': item.athleteId,
                   'content': item.content
-                });
+                },
+            changeListener);
 
   final sqflite.DatabaseExecutor database;
 
@@ -140,8 +141,9 @@ class _$AthleteDao extends AthleteDao {
   final InsertionAdapter<Post> _postInsertionAdapter;
 
   @override
-  Future<List<Post>> findAllPost() async {
-    return _queryAdapter.queryList('SELECT * FROM post', mapper: _postMapper);
+  Stream<List<Post>> findAllPost() {
+    return _queryAdapter.queryListStream('SELECT * FROM post',
+        tableName: 'post', mapper: _postMapper);
   }
 
   @override
