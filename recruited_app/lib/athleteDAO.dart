@@ -6,6 +6,9 @@ abstract class AthleteDao {
   @Query('SELECT * FROM post')
   Future<List<Post>> findAllPost();
 
+  @Query('SELECT * FROM athlete')
+  Future<List<Athlete>> findAllAthlete();
+
   @Query('SELECT * FROM athlete WHERE id = :id')
   Future<Athlete> findAthleteById(int id);
 

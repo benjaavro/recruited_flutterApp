@@ -80,9 +80,9 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `athelte` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `mail` TEXT NOT NULL, `sport` TEXT NOT NULL, `team` TEXT NOT NULL, `age` INTEGER NOT NULL)');
+            'CREATE TABLE IF NOT EXISTS `athlete` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `mail` TEXT NOT NULL, `sport` TEXT NOT NULL, `team` TEXT NOT NULL, `age` INTEGER NOT NULL)');
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `post` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `athleteId` INTEGER NOT NULL, `content` TEXT NOT NULL, FOREIGN KEY (`athleteId`) REFERENCES `athelte` (`id`) ON UPDATE NO ACTION ON DELETE NO ACTION)');
+            'CREATE TABLE IF NOT EXISTS `post` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `athleteId` INTEGER NOT NULL, `content` TEXT NOT NULL, FOREIGN KEY (`athleteId`) REFERENCES `athlete` (`id`) ON UPDATE NO ACTION ON DELETE NO ACTION)');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -100,7 +100,7 @@ class _$AthleteDao extends AthleteDao {
       : _queryAdapter = QueryAdapter(database),
         _athleteInsertionAdapter = InsertionAdapter(
             database,
-            'athelte',
+            'athlete',
             (Athlete item) => <String, dynamic>{
                   'id': item.id,
                   'name': item.name,
@@ -127,7 +127,7 @@ class _$AthleteDao extends AthleteDao {
   static final _postMapper = (Map<String, dynamic> row) =>
       Post(row['id'] as int, row['athleteId'] as int, row['content'] as String);
 
-  static final _athelteMapper = (Map<String, dynamic> row) => Athlete(
+  static final _athleteMapper = (Map<String, dynamic> row) => Athlete(
       row['id'] as int,
       row['name'] as String,
       row['mail'] as String,
@@ -145,9 +145,15 @@ class _$AthleteDao extends AthleteDao {
   }
 
   @override
+  Future<List<Athlete>> findAllAthlete() async {
+    return _queryAdapter.queryList('SELECT * FROM athlete',
+        mapper: _athleteMapper);
+  }
+
+  @override
   Future<Athlete> findAthleteById(int id) async {
     return _queryAdapter.query('SELECT * FROM athlete WHERE id = ?',
-        arguments: <dynamic>[id], mapper: _athelteMapper);
+        arguments: <dynamic>[id], mapper: _athleteMapper);
   }
 
   @override

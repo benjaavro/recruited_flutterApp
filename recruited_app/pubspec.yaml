@@ -30,7 +30,6 @@ dependencies:
   font_awesome_flutter:
 
 dev_dependencies:
-  floor: ^0.9.0
   floor_generator: ^0.9.0
   build_runner: ^1.7.1
   flutter_test:
