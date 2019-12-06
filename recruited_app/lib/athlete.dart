@@ -10,7 +10,6 @@ class Athlete {
 
   @ColumnInfo(name: 'mail', nullable: false)
   final String mail;
-
   @ColumnInfo(name: 'sport', nullable: false)
   final String sport;
 

@@ -3,6 +3,47 @@ import 'globals.dart' as globals;
 import 'athlete.dart';
 import 'database.dart';
 
+import 'athlete.dart';
+import 'database.dart';
+
+class ProfileInfo {
+  String name;
+  String mail;
+  String sport;
+  String team;
+  int age;
+
+  ProfileInfo({this.name, this.mail, this.sport, this.team, this.age});
+}
+
+Future bringProfile() async {
+  ProfileInfo kid;
+
+  final database = await $FloorAppDatabase
+      .databaseBuilder('app_database.db')
+      .build();
+
+  final dao = database.athleteDao;
+
+  final athleteInfo = await dao.findAthleteById(1);
+
+  print(athleteInfo.name);
+  print(athleteInfo.mail);
+  print(athleteInfo.sport);
+  print(athleteInfo.team);
+  print(athleteInfo.age);
+
+  kid.name = athleteInfo.name;
+  kid.mail = athleteInfo.mail;
+  kid.sport = athleteInfo.sport;
+  kid.team = athleteInfo.team;
+  kid.age = athleteInfo.age;
+
+  print(kid.name);
+
+  return kid;
+}
+
 class Profile extends StatefulWidget {
 
   @override
@@ -24,6 +65,8 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    Future kid = bringProfile();
+
     // TODO: implement build
     return new Column(
       children: <Widget>[
@@ -50,7 +93,7 @@ class _ProfileState extends State<Profile> {
                     new Padding(padding: const EdgeInsets.symmetric(horizontal: 15.0)),
                     new Center(
                       child: Text(
-                        "Benjamin Avila Rosas",
+                        "",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20.0,
@@ -147,7 +190,7 @@ class _ProfileState extends State<Profile> {
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
                     ),
                     Text(
-                      "Benjamín Avila Rosas",
+                      "",
                       style: TextStyle(
                         fontSize: 18.0,
                       ),
