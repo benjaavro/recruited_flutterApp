@@ -23,3 +23,25 @@ class Athlete {
   Athlete(this.id,this.name,this.mail,this.sport,this.team,this.age);
 
 }
+
+@Entity(tableName: 'post',foreignKeys: [
+  ForeignKey(
+    childColumns: ['athleteId'],
+    parentColumns: ['id'],
+    entity: Athlete,
+  )
+],)
+class Post {
+  @PrimaryKey(autoGenerate: true)
+  final int id;
+
+  @ColumnInfo(name: 'athleteId', nullable: false)
+  final int athleteId;
+
+  @ColumnInfo(name: 'content', nullable: false)
+  final String content;
+
+
+  Post(this.id,this.athleteId,this.content);
+
+}
