@@ -17,6 +17,7 @@ Future navigateToSignUp(context) async {
 Future navigateToHome(context) async {
   String username = _usernameController.text;
   String password = _passwordController.text;
+
   var url = 'http://10.25.241.57:3000/mobile/get';
   var response = await http.post(url, body: {'Mail': username});
   var jsonResponse = convert.jsonDecode(response.body);
@@ -26,6 +27,7 @@ Future navigateToHome(context) async {
   final iv = IV.fromLength(16);
   final encrypter = Encrypter(AES(key));
   final decrypted = encrypter.decrypt16(data['password'], iv: iv);
+
   if(password == decrypted) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Home(id: id)));
   }

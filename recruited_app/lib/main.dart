@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recruited_app/home.dart';
 import 'package:recruited_app/login.dart';
-import 'package:recruited_app/signup.dart';
 import 'athleteDAO.dart';
 import 'database.dart';
-import 'athlete.dart';
-import 'package:sqflite/sqflite.dart';
 
 Future<void> main() async {
 
