@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
+import 'globals.dart' as globals;
+import 'athlete.dart';
+import 'database.dart';
 
 class Profile extends StatefulWidget {
+
   @override
   _ProfileState createState() => new _ProfileState();
 }
 
+Future getDB() async {
+  final database = await $FloorAppDatabase
+      .databaseBuilder('app_database.db')
+      .build();
+
+  final dao = database.athleteDao;
+  final athlete = await dao.findAthleteById(globals.id);
+  print(athlete.name);
+
+}
+
 class _ProfileState extends State<Profile> {
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
