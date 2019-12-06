@@ -48,22 +48,23 @@ class PostsList extends StatelessWidget {
                 ],
               ),
             ),
-            Flexible(
+            /*Flexible(
               fit: FlexFit.loose,
               child: new Image.network(
                   "https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/s960x960/73254958_10222131323011895_9170646129270849536_o.jpg?_nc_cat=109&_nc_ohc=dAJdffyot9MAQkjbEkzTtK_o6QLLmQhW-NpRxAAlwFn3PZs9DnO_fuH8Q&_nc_ht=scontent-lax3-1.xx&oh=6a2aae825e204f8605f879e5382c6ec8&oe=5E85C201",
                 fit: BoxFit.cover,
               ),
-            ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16.0, 16.0, 0.0, 0.0),
+            ),*/
+            Padding(
+                padding: const EdgeInsets.fromLTRB(16.0, 8.0, 0.0, 0.0),
                 child: Text(
                   "Post Description",
                   style: TextStyle(
+                    fontSize: 18.0,
                     color: Colors.black,
                   ),
                 ),
-              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
@@ -73,7 +74,7 @@ class PostsList extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
+            /*Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -104,7 +105,7 @@ class PostsList extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
+            ),*/
           ],
         ),
     );
