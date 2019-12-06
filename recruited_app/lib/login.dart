@@ -17,8 +17,7 @@ Future navigateToSignUp(context) async {
 Future navigateToHome(context) async {
   /*String username = _usernameController.text;
   String password = _passwordController.text;
-
-  var url = 'http://10.25.241.57:3000/mobile/get';
+  var url = 'http://192.168.0.116:3000/mobile/get';
   var response = await http.post(url, body: {'Mail': username});
   var jsonResponse = convert.jsonDecode(response.body);
   var data = jsonResponse[0];
